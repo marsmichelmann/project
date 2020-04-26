@@ -1,4 +1,4 @@
-package com.kiwi;
+package com.kiwi.boundary;
 
 import com.kiwi.entity.TestEntity;
 import org.eclipse.microprofile.metrics.annotation.Metered;
