@@ -1,24 +1,31 @@
 package com.kiwi.boundary;
 
 import com.kiwi.entity.TestEntity;
+import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.eclipse.microprofile.metrics.annotation.Metered;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 
 import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 import javax.json.Json;
 import javax.json.JsonObject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
 @Schema(description = "Example Resource")
-@Path("/example")
+@Path("example")
 @RequestScoped
 @Consumes(MediaType.APPLICATION_JSON)
 public class ExampleResource {
 
-    @Path("/hello")
+    @Inject
+    @ConfigProperty(name= "version")
+    String version;
+
+
+    @Path("hello")
     @Metered
     @GET
     @Produces(MediaType.TEXT_PLAIN)
@@ -26,7 +33,7 @@ public class ExampleResource {
         return "hello";
     }
 
-    @Path("/test")
+    @Path("test")
     @Metered
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -37,7 +44,7 @@ public class ExampleResource {
                 .build();
     }
 
-    @Path("/bla")
+    @Path("bla")
     @Metered
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -48,7 +55,7 @@ public class ExampleResource {
     }
 
     @Schema(description = "Creates a TestEntity")
-    @Path("/bla")
+    @Path("bla")
     @Metered
     @POST
     @APIResponse(responseCode = "200", description = "the created Test Entity")
@@ -56,5 +63,13 @@ public class ExampleResource {
     public TestEntity create(@RequestBody(description = "A brief description of the request body",
             required = true) TestEntity entity) {
         return entity;
+    }
+
+    @Path("version")
+    @Metered
+    @GET
+    @Produces(MediaType.TEXT_PLAIN)
+    public String version() {
+        return version;
     }
 }
