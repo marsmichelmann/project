@@ -12,6 +12,9 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import java.util.Collection;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /**
  * Rest resource for {@link Test}.
@@ -33,6 +36,27 @@ public class TestResource {
         Test entity = new Test();
         entity.setText("text123");
         return entity;
+    }
+
+    /**
+     * Gets all {@link Test}
+     *
+     * @return the found {@link Test}.
+     */
+    @Path("getAllTest")
+    @Operation(description = "Gets all Test")
+    @APIResponse(description = "the found Test", responseCode = "200")
+    @Metered
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Collection<Test> getAllTest() {
+        return IntStream.range(1, 10)
+                .mapToObj(i -> {
+                    Test test = new Test();
+                    test.setText("test" + i);
+                    return test;
+                })
+                .collect(Collectors.toList());
     }
 
     /**
