@@ -61,11 +61,11 @@ public class ExampleResource {
     }
 
     /**
-     * Gets the current version.
+     * Gets the current version of example.
      *
-     * @return the current version
+     * @return the current version of example.
      */
-    @Operation(description = "Gets the current version")
+    @Operation(description = "Gets the current version of Example")
     @APIResponse(description = "the current version", responseCode = "200")
     @Path("version")
     @Metered
