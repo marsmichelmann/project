@@ -43,9 +43,9 @@ public class ExampleResource {
     }
 
     /**
-     * Creates a simple Json Object.
+     * Creates a simple {@link JsonObject}.
      *
-     * @return the created Json Object.
+     * @return the created {@link JsonObject}.
      */
     @Operation(description = "Creates a simple Json Object")
     @APIResponse(description = "the created Json Object", responseCode = "200")
