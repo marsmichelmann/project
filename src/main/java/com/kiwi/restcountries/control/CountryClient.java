@@ -15,6 +15,7 @@ import java.util.Set;
  */
 @Path("v2")
 @RegisterRestClient(configKey = "country-api")
+@Produces(MediaType.APPLICATION_JSON)
 public interface CountryClient {
 
     /**
@@ -25,6 +26,5 @@ public interface CountryClient {
      */
     @GET
     @Path("name/{name}")
-    @Produces(MediaType.APPLICATION_JSON)
     Set<Country> getCountryByName(@PathParam("name") String name);
 }

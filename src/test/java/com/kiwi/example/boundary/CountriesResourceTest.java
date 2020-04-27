@@ -1,4 +1,4 @@
-package com.kiwi.boundary;
+package com.kiwi.example.boundary;
 
 import com.kiwi.restcountries.boundary.CountryResource;
 import io.quarkus.test.junit.QuarkusTest;

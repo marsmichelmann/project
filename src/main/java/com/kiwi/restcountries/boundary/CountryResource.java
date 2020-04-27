@@ -32,7 +32,7 @@ public class CountryResource {
      * @return the requested information about a {@link Country}.
      */
     @Operation(description = "Get information about a country")
-    @APIResponse(description = "the requested information about a country")
+    @APIResponse(description = "the requested information about a country", responseCode = "200")
     @GET
     @Path("/name/{name}")
     @Produces(MediaType.APPLICATION_JSON)
