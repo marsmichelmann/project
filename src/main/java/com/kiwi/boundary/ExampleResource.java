@@ -1,6 +1,6 @@
 package com.kiwi.boundary;
 
-import com.kiwi.entity.TestEntity;
+import com.kiwi.entity.Test;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.eclipse.microprofile.metrics.annotation.Metered;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
@@ -48,8 +48,8 @@ public class ExampleResource {
     @Metered
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public TestEntity bla() {
-        TestEntity entity = new TestEntity();
+    public Test bla() {
+        Test entity = new Test();
         entity.setText("bla");
         return entity;
     }
@@ -60,8 +60,8 @@ public class ExampleResource {
     @POST
     @APIResponse(responseCode = "200", description = "the created Test Entity")
     @Produces(MediaType.APPLICATION_JSON)
-    public TestEntity create(@RequestBody(description = "A brief description of the request body",
-            required = true) TestEntity entity) {
+    public Test create(@RequestBody(description = "A brief description of the request body",
+            required = true) Test entity) {
         return entity;
     }
 

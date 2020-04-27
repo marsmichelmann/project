@@ -1,6 +1,6 @@
 package com.kiwi.boundary;
 
-import com.kiwi.entity.TestEntity;
+import com.kiwi.entity.Test;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,11 +20,11 @@ public class TestController {
     }
 
     @GetMapping(produces = "application/json")
-    public List<TestEntity> findAll() {
-        List<TestEntity> entities = new ArrayList<>();
-        TestEntity t1 = new TestEntity();
+    public List<Test> findAll() {
+        List<Test> entities = new ArrayList<>();
+        Test t1 = new Test();
         t1.setText("t1");
-        TestEntity t2 = new TestEntity();
+        Test t2 = new Test();
         t2.setText("t2");
         entities.add(t1);
         entities.add(t2);

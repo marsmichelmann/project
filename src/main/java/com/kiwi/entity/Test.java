@@ -3,7 +3,7 @@ package com.kiwi.entity;
 import lombok.*;
 
 @Data
-public class TestEntity {
+public class Test {
 
     private String text;
 }
