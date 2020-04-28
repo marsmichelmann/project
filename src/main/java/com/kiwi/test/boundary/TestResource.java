@@ -27,6 +27,7 @@ public class TestResource {
      *
      * @return the {@link Test}.
      */
+    @Path("test")
     @Operation(description = "Gets a Test")
     @APIResponse(description = "the Test", responseCode = "200")
     @Metered
