@@ -1,25 +1,47 @@
 package com.kiwi.test.boundary;
 
 import com.kiwi.test.entity.Test;
+import org.eclipse.microprofile.metrics.annotation.Metered;
+import org.eclipse.microprofile.openapi.annotations.Operation;
+import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Rest controller for {@link Test}.
+ */
 @RestController
-@RequestMapping("/test")
+@RequestMapping("/spring")
 public class TestController {
-    @GetMapping(path = "/greet/{id}", produces = "text/plain")
-    public String greetPerson(@PathVariable(name = "id") long id) {
-        String name = "";
-        // ...
-        return name;
+
+    /**
+     * Gets a {@link Test}
+     *
+     * @return the {@link Test}.
+     */
+    @Operation(description = "Gets a Test")
+    @APIResponse(description = "the Test", responseCode = "200")
+    @Metered
+    @GetMapping(path = "/test/{id}", produces = "text/plain")
+    public Test getTest() {
+        Test entity = new Test();
+        entity.setText("text123");
+        return entity;
     }
 
-    @GetMapping(produces = "application/json")
+    /**
+     * Gets all {@link Test}
+     *
+     * @return the found {@link Test}.
+     */
+    @Operation(description = "Get all Test")
+    @APIResponse(description = "the found Test", responseCode = "200")
+    @Metered
+    @GetMapping(path = "/test/getAll", produces = "application/json")
     public List<Test> findAll() {
         List<Test> entities = new ArrayList<>();
         Test t1 = new Test();

@@ -32,7 +32,17 @@ class TestResourceTest {
                 .when().get("/test/getAll")
                 .then()
                 .statusCode(200)
-                .body("$.size()", is(9));
+                .body("$.size()", is(9),
+                        "[0].text", is("test1"),
+                        "[1].text", is("test2"),
+                        "[2].text", is("test3"),
+                        "[3].text", is("test4"),
+                        "[4].text", is("test5"),
+                        "[5].text", is("test6"),
+                        "[6].text", is("test7"),
+                        "[7].text", is("test8"),
+                        "[8].text", is("test9")
+                );
     }
 
     @Test
