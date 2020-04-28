@@ -1,7 +1,7 @@
-package com.kiwi.example.boundary;
+package com.kiwi.restcountries.boundary;
 
-import com.kiwi.restcountries.boundary.CountryResource;
 import io.quarkus.test.junit.QuarkusTest;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
@@ -11,20 +11,20 @@ import static org.hamcrest.Matchers.is;
  * Test class for {@link CountryResource}.
  */
 @QuarkusTest
-public class CountriesResourceTest {
+class CountryResourceTest {
 
     @Test
-    public void testCountryNameEndpoint() {
+    @DisplayName("Tests requesting country germany")
+    public void getCountryByName() {
         given()
-                .when().get("/country/name/greece")
+                .when().get("/country/name/germany")
                 .then()
                 .statusCode(200)
                 .body("$.size()", is(1),
-                        "[0].alpha2Code", is("GR"),
-                        "[0].capital", is("Athens"),
+                        "[0].alpha2Code", is("DE"),
+                        "[0].capital", is("Berlin"),
                         "[0].currencies.size()", is(1),
                         "[0].currencies[0].name", is("Euro")
                 );
     }
-
 }

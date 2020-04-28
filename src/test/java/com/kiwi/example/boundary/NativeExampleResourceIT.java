@@ -1,4 +1,4 @@
-package com.kiwi;
+package com.kiwi.example.boundary;
 
 import io.quarkus.test.junit.NativeImageTest;
 

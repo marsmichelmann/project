@@ -43,7 +43,7 @@ public class TestResource {
      *
      * @return the found {@link Test}.
      */
-    @Path("getAllTest")
+    @Path("getAll")
     @Operation(description = "Gets all Test")
     @APIResponse(description = "the found Test", responseCode = "200")
     @Metered
