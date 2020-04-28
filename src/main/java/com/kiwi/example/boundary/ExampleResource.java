@@ -43,17 +43,17 @@ public class ExampleResource {
     }
 
     /**
-     * Creates a simple {@link JsonObject}.
+     * Gets a simple {@link JsonObject}.
      *
-     * @return the created {@link JsonObject}.
+     * @return the {@link JsonObject}.
      */
-    @Operation(description = "Creates a simple Json Object")
-    @APIResponse(description = "the created Json Object", responseCode = "200")
-    @Path("create")
+    @Operation(description = "Gets a simple Json Object")
+    @APIResponse(description = "the Json Object", responseCode = "200")
+    @Path("object")
     @Metered
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public JsonObject create() {
+    public JsonObject object() {
         return Json.createObjectBuilder()
                 .add("key1", "value1")
                 .add("key2", "value2")

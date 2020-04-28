@@ -36,7 +36,7 @@ public class CountryResource {
     @GET
     @Path("/name/{name}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Set<Country> name(@PathParam("name") @Parameter(description = "Name of requested country", example = "germany") String name) {
+    public Set<Country> getCountryByName(@PathParam("name") @Parameter(description = "Name of requested country", example = "germany") String name) {
         return client.getCountryByName(name);
     }
 }
