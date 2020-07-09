@@ -20,7 +20,7 @@
     <quarkus.platform.version>${quarkus.version}</quarkus.platform.version>
 
     <!-- versions -->
-    <quarkus.version>1.5.2.Final</quarkus.version>
+    <quarkus.version>1.6.0.Final</quarkus.version>
     <compiler-plugin.version>3.8.1</compiler-plugin.version>
     <lombok.version>1.18.12</lombok.version>
     <surefire-plugin.version>2.22.2</surefire-plugin.version>
